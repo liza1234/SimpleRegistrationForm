@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Day 1</title>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <!--Angular Library-->
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <script src="controllers\registerController.js"></script>
+
+    <style>
+        .bs{
+            margin:20px;
+        }
+    </style>
+</head>
+
+<body ng-app="myApp">
+
+    <div class="bs" ng-controller="registerController">
+        <div class="form-group">
+            <label class="sr-only" >Fisrt Name</label>
+            <input  type="text" class="form-control" ng-model="user.firstName" placeholder="First Name">
+        </div>
+        <div class="form-group">
+            <label class="sr-only" >Last Name</label>
+            <input type="text" class="form-control" ng-model="user.lastName" placeholder="Last Name">
+        </div>
+        <div class="form-group">
+            <label class="sr-only" >Date of Birth</label>
+            <input type="date" class="form-control" ng-model="user.dob" placeholder="Date of Birth">
+        </div>
+        <div class="form-group">
+            <label class="sr-only" >State</label>
+            <select ng-model="user.state" ng-change="loadCity()" ng-options="state.name for state in states">
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="sr-only" >City</label>
+            <input type="text" class="form-control" ng-model="user.city" placeholder="City">
+        </div>
+        <div class="form-group">
+            <label class="sr-only" >Email</label>
+            <input type="email" class="form-control" ng-model="user.email" placeholder="Email">
+        </div>
+        <div class="form-group">
+            <label class="sr-only" >Password</label>
+            <input type="password" class="form-control" ng-model="user.password" placeholder="Password">
+        </div>
+        <div class="checkbox">
+            <label><input type="checkbox"> Remember me</label>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-offset-2 col-xs-10">
+                <button type="submit" class="btn btn-primary" ng-click="register()">Login</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
